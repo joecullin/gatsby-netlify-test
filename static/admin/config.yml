@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: joecullin/netlify-test-content
+  api-root: https://api.github.com
+  branch: dev
+
+media_folder: /assets
+public_folder: ../assets
+
+collections:
+  - name: knowledge.snippets
+    label: Knowledge Snippets
+    folder: knowledge/snippets
+    create: true
+    identifier_field: id
+    fields:
+      - name: id
+        label: Id
+        pattern: ['[a-z0-9.]{5,}', "Lowercase letters, numbers, and dots. Min 5 chars."]
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+  - name: knowledge.articles
+    label: Knowledge Articles
+    folder: knowledge/articles
+    create: true
+    identifier_field: id
+    fields:
+      - name: id
+        label: Id
+        pattern: ['[a-z0-9.]{5,}', "Lowercase letters, numbers, and dots. Min 5 chars."]
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+  - name: announcements
+    label: "Announcements"
+    folder: announcements
+    create: true
+    identifier_field: id
+    fields:
+      - name: id
+        label: Id
+        pattern: ['[a-z0-9.]{5,}', "Lowercase letters, numbers, and dots. Min 5 chars."]
+      - { name: title, label: Title }
+      - label: "Featured Image"
+        name: "thumbnail"
+        widget: "image"
+        default: "/uploads/chocolate-dogecoin.jpg"
+        media_library:
+          config:
+            max_file_size: 512000 # in bytes, only for default media library
+      - { name: body, label: Body, widget: markdown }
