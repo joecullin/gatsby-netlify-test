@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: joecullin/netlify-test-content
+  repo: joecullin/gatsby-netlify-test
   api-root: https://api.github.com
   branch: dev
 
